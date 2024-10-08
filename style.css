@@ -1,0 +1,448 @@
+/* Makes webiste appear as fullscreen in browser */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.body{
+  font-family: 'Inter', serif;
+}
+
+button{
+  cursor: pointer;
+}
+
+.flex-container{
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.flex-box{
+  padding: 5% 0% 5% 0%;
+  width: 50%;
+  height: fit-content;
+  text-align: left;
+}
+
+.welcome{
+  padding-top: 100px;
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
+  background-image: url(bg.avif);
+  background-size: cover;
+  background-position: center;
+  background: #D3D4CE;
+}
+
+.welcome p{
+  font-size: 25px;
+}
+
+.welcome img{
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  position: relative;
+}
+
+.welcome-button{
+  max-height: 170px;
+  margin-right: 40px;
+  font-size: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0px 5px 5px 0px grey;
+  border-radius: 15px;
+  height: 140px;
+}
+
+.welcome-button img{
+  height: 100px;
+  width: 100px;
+  max-width: 100px;
+  margin: auto;
+}
+
+.container-container{
+  padding: 160px 0 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.container{
+  width: 90%;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, .15);
+  border-radius: 10px;
+}
+
+.tab_box{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid rgba(229, 229, 229);
+}
+
+.tab_box .tab_btn{
+  font-size: 18px;
+  font-weight: 600;
+  color: brown;
+  background: none;
+  border: none;
+  padding: 18px;
+  cursor: pointer;
+}
+
+.tab_box .tab_btn.active{
+  color: gold;
+}
+
+.content_box{
+  padding: 20px;
+  color: brown;
+}
+
+.content_box .content{
+  display: none;
+  animation: moving .5s ease;
+}
+
+
+.content_box .content.active{
+  display: block;
+}
+
+.content_box .content h2{
+  margin-bottom: 10px;
+}
+
+.line{
+  position: absolute;
+  top: 62px;
+  left: 0;
+  width: 90px;
+  height: 5px;
+  background-color: purple;
+  border-radius: 10px;
+}
+
+.food{
+  justify-content: center;
+  margin-top: -100px;
+  width: 100%;
+  height: auto;
+}
+
+.food p{
+  padding-left: 17%;
+}
+
+.food img{
+  max-width: 200px;
+  max-height: 200px;
+  width: 100%;
+  height: 100%;
+
+}
+
+.middle{
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.program{
+  background-color: #023246;
+  height: fit-content;
+}
+
+.programText{
+  color: white;
+  text-align: center;
+  padding: 50px;
+}
+
+.testimonies{
+  background-color: #F6F6F6;
+}
+
+.testimonies h1{
+  font-size: 50px;
+  padding-top: 30px;
+  padding-left: 5%;
+}
+
+.testimonies h2{
+  padding-left: 5%;
+}
+
+.testimonies h2{
+  
+}
+
+.testimony{
+  text-align: center;
+  position: relative;
+  width: 50%;
+  background-color: white;
+  margin: 2%;
+  justify-content: center;
+}
+
+.testimony img{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: block;
+  border-radius: 100px;
+  object-fit: cover;
+  margin: auto;
+}
+
+.testimony h1{
+  font-size: 25px;
+  padding: 0 5%;
+}
+
+.testimony h2{
+  font-size: 20px;
+  padding: 0 5%;
+}
+
+.testimony p{
+  font-size: 18px;
+  padding: 0 5%;
+}
+
+.joinUs{
+  color: white;
+  background-color: #023246;
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
+  justify-content: right;
+}
+
+.joinUs h1{
+  padding-top: 40px;
+  font-size: 50px;
+  padding-left: 7%;
+}
+
+.joinUs h2{
+  font-size: 20px;
+  padding-left: 10%;
+}
+
+.joinUs h3{
+  font-size: 50px;
+}
+
+.joinUs p{
+  font-size: 25px;
+}
+
+.banner{
+  color: white;
+  background-color: #287194;
+  overflow: hidden;
+  width: 100%;
+  height: fit-content;
+  background-image: url(bg.avif);
+  background-size: cover;
+  background-position: center;
+  align-items: right;
+}
+
+.banner h1{
+  padding-left: 30%;
+  text-align: right;
+  font-size: 50px;
+  padding-right: 5%;
+}
+
+.banner p{
+  padding-left: 30%;
+  text-align: right;
+  font-size: 25px;
+  padding-right: 5%;
+}
+
+.banner button{
+  float: right;
+  left: 10%;
+  background-color: #023246;
+  color: white;
+  text-decoration: none;
+}
+
+.content-image{
+  
+}
+.content-title{
+  width: 500px;
+}
+
+.button-container{
+  padding-right: 5%;
+}
+
+.buttonNew a{
+  color: white;
+  text-decoration: none;
+}
+.buttonNew p{
+  padding: 10px;
+}
+
+.boxleft{
+  margin-left: 5%;
+  float: left;
+  border-radius: 20px 20px 20px 20px;
+  background: #fff;
+  width: 250px;
+  height: 350px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1.5px;
+}
+
+.titleboxleft{
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 1px solid black;
+  border-radius: 20px 20px 0px 0px;
+  background: #F2FFBF
+}
+
+.coursetitle2-left{
+  padding: 10px;
+  font-weight: bold;
+}
+
+.coursetextleft{
+font-family: Arial, Helvetica, sans-serif;
+padding-top: 10px;
+padding-left: 5px;
+padding-right: 5px;
+text-align: left;
+}
+
+.courseinfleft{
+font-size: small;
+}
+
+.WarnaMemilihleft{
+color: #fff;
+}
+
+.Memilihleft{
+float: left;
+text-align: center;
+width: 60px;
+height: 25px;
+border-width: 0;
+background-color: #3E557A;
+margin-top: 10px;
+margin-left: 170px;
+}
+
+.boxright{
+margin-left: 30%;
+border-radius: 20px 20px 20px 20px;
+background: #fff;
+width: 250px;
+height: 350px;
+border-style: solid;
+border-color: black;
+border-width: 1.5px;
+}
+
+.titleboxright{
+font-family: Arial, Helvetica, sans-serif;
+border-bottom: 1px solid black;
+border-radius: 20px 20px 0px 0px;
+background: #F2FFBF
+}
+
+.coursetitle2-right{
+padding: 10px;
+font-weight: bold;
+}
+
+.coursetextright{
+font-family: Arial, Helvetica, sans-serif;
+padding-top: 10px;
+padding-left: 5px;
+padding-right: 5px;
+text-align: left;
+}
+
+.courseinfright{
+font-size: small;
+}
+
+.WarnaMemilihright{
+color: #fff;
+}
+
+.Memilihright{
+text-align: center;
+width: 60px;
+height: 25px;
+border-width: 0;
+background-color: #3E557A;
+margin-top: 10px;
+margin-left: 170px;
+}
+
+.content h1{
+  font-size: 25px;
+  font-weight: bold;
+  color: #0066FF;
+}
+.content h2{
+  font-size: 15px;
+  font-weight: normal;
+  color: black;
+}
+.content h3{
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+.content p{
+  font-size: 15px;
+  font-weight: normal;
+  color: black;
+}
+
+.content-image{
+  padding: 10px 0 0 10px;
+  width: 15%;
+}.content-title{
+  padding: 50px 0 0 10px;
+  width: 40%;
+  height: 150px;
+}.content-tag{
+  padding: 60px 0 0 10px;
+  width: 15%;
+  color: black;
+  font-size: 20px;
+}.content-reply{
+  padding: 50px 0 0 10px;
+  width: 15%;
+}.content-view{
+  padding: 50px 0 0 10px;
+  width: 15%;
+}.thread{
+  border-bottom: solid black 0.5px;
+  height: 150px;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
