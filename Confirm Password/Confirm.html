@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Mahacademy</title>
+  <link href="Confirm.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+  <script defer src="Confirm.js"></script>
+</head>
+
+<body>
+  <div class="back">
+    <div class="flex-container back-container">
+        <div class="flex-box back-box">
+            <div class="button1" onclick="history.back()">
+              <img src="arrow-left-solid.svg" alt="back">
+            </div>
+        </div>
+        <div class="flex-box back-box">
+            <h3 style="font-weight: 500;">Back</h3>
+        </div>
+    </div>
+  </div>
+    <div class="flex center">
+      <form action="" class="form-section" style="width: 500px;">
+          <div class="header">
+            <h1>MAHACADEMY!</h1>
+          </div>
+          <div class="field">
+            <label for="">Change Your Password</label>
+            <input type="text" placeholder="Enter Your Password Here">
+          </div>
+          <div class="field">
+            <label for="">Confirm Your Password</label>
+            <input type="password" placeholder="Confirm Your Password Here">
+          </div>  
+          <button type="submit" class="btn btn-primary" href="../Login/Login.html">Confirm</button>
+      </form>
+    </div>
+</body>

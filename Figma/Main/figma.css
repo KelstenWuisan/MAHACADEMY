@@ -1,0 +1,318 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+font-family: 'Inter', sans-serif;
+}
+
+.navbar img{
+    padding-top: 10px;
+    width: auto;
+    height: 100%;
+    max-height: 80px;
+}
+
+header{
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    border-bottom: black 1px solid;
+}
+
+header li{
+    list-style: none;
+}
+
+header a{
+    padding-right: 15px;
+    color: black;
+    text-decoration: none;
+}
+
+header button{
+    margin-left: 50px;
+}
+
+
+.navbar{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-branding{
+    font-size: 2rem;
+}
+
+.nav-item{
+    margin: 0px -20px 0px -20px;
+    padding: 3px 0px 0px 0px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+
+.nav-link{
+    transition: 0.7s ease;
+}
+
+.nav-link:hover{
+    color: gold;
+}
+
+.login-link{
+    background-color: #AF4B3F;
+    border-radius: 25px;
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: black;
+}
+
+@media(max-width: 768px){
+    .hamburger{
+        display: block;
+    }
+
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .nav-item{
+        margin: 16px 0;
+    }
+
+    .nav-menu.active{
+        left: 0;
+    }
+}
+
+body{
+    background-color: #d3d4ce;
+    line-height: 1.5;
+}
+
+
+.avl{
+    background-color: #d3d4ce;
+}
+
+
+.avl-video{
+    align-items: center;
+    align-content: center;
+    height: auto;
+    left: 0;
+    right: 0;
+    margin-top: 15px;
+    padding: 0 45px;
+}
+
+iframe{
+    width: 100%;
+    height: auto;
+    min-height: 600px;
+    border: 0;
+    border-radius: 10px;
+}
+
+.content{
+    padding: 15px 45px;
+    width: 100%;
+    height: fit-content;
+}
+
+.content h3{
+    padding-bottom: 15px ;
+    padding-top: 15px;
+}
+
+.imgcontainer{
+    max-width: 50%;
+}
+
+.imgcontainer img{
+    height: auto;
+    width: 100%;
+    margin: 0 10px;
+    display: block;
+}
+
+
+.excercise{
+    background-color: #00b0a5;
+    border-style: none;
+    border-radius: 10px;
+    padding: 15px 25px;
+    cursor: pointer;
+}
+
+.excercise:hover{
+    opacity: 0.7;
+}
+
+@media(max-width: 768px){
+    iframe{
+        min-height: 300px;
+    }
+
+    .imgcontainer{
+        max-width: 90%;
+    }
+
+}
+
+.footer-container{
+	margin:auto;
+}
+
+.footer-row{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+footer ul{
+	list-style: none;
+	font-weight: bold;
+}
+
+.footer{
+	background-color: #d3d4ce;
+    padding: 70px 0;
+}
+
+.footer-col{
+   width: 14%;
+   padding: 0 15px;
+}
+
+.footer-col h4{
+	font-size: 18px;
+	color: black;
+	margin-bottom: 35px;
+	font-weight: bolder;
+	position: relative;
+}
+
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #d3d4ce;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+	font-size: 16px;
+	color: black;
+	text-decoration: none;
+	font-weight: 300;
+	color: black;
+	display: block;
+	transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+	color: black;
+	padding-left: 8px;
+}
+
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: black;
+	transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: black;
+}
+
+.sosmed-image{
+	filter: brightness(0) invert(1);
+  }
+
+@media(max-width: 768px){
+  	.footer-col{
+    	width: 50%;
+    	margin-bottom: 30px;
+	}
+
+    .backbut{
+        margin-left: 0;
+    }
+}
+
+@media(max-width: 1200px){
+    .flexcontain{
+        width: 50%;
+    }
+}
+
+@media(max-width: 900px){
+    .flexcontain{
+        width: 30%;
+    }
+}
+
+.flexcontain{
+    padding-top: 110px;
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.avl-title{
+    padding-left: 45px;
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+.backbut{
+    position: relative;
+    margin-left: 950px;
+    padding: 10px 35px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heap Tree</title>
+    <link rel="stylesheet" href="./Heap.css">
+</head>
+<body>
+    
+    <!-- Navbar HTML -->
+  <header>
+    <nav class="navbar">
+        <a href="#" class="nav-branding">
+            <img src="logo-black.png" alt="">
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Discussion</a>
+            </li>
+            <li class="nav-item">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="height: 30px;">
+            </li>
+            <li>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="height: 30px; background-color: black; color: white;">Search</button>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+     </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="avl">
+        <div class="flexcontain">
+            <div class="avl-title flex-box">Heap Tree</div>
+            <button class="backbut flex-box" onclick="history.back()">Back</button>
+        </div>
+        
+        <div class="avl-video">
+            <iframe src="https://www.youtube.com/embed/t0Cq6tVNRBA"></iframe>
+        </div>
+
+        <div class="content">
+            <h3>Binary Heap</h3>
+            <p>A Binary Heap could be a Binary Tree with following properties.
+                It's an entire tree (All levels are completely filled except possibly the last level and therefore the last level has all keys as left as possible). This property of Binary Heap makes them suitable to be stored in an array.
+                A Binary Heap is either Min Heap or Max Heap. in a very Min Binary Heap, the key at root must be minimum among all keys present in Binary Heap. the identical property must be recursively true for all nodes in Binary Tree. Max Binary Heap is comparable to MinHeap.</p>
+
+                <div class="imgcontainer">
+                    <img class="img1" src="img1.png" alt="">
+                </div>
+                
+            <h3>Operations on Min Heap:</h3>
+            <li>getMini(): It returns the foundation element of Min Heap. Time Complexity of this operation is O(1).</li>
+            <li>extractMin(): Removes the minimum element from MinHeap. Time Complexity of this Operation is O(Logn) as this operation has to maintain the heap property (by calling heapify()) after removing root.</li>
+            <li>decreaseKey(): Decreases value of key. The time complexity of this operation is O(Logn). If the decreases key value of a node is bigger than the parent of the node, then we don't must do anything. Otherwise, we want to traverse up to mend the violated heap property.</li>
+            <li>insert(): Inserting a replacement key takes O(Logn) time. We add a replacement key at the tip of the tree. IF new key's greater than its parent, then we don't must do anything. Otherwise, we want to traverse up to mend the violated heap property.</li>
+            <li>delete(): Deleting a key also takes O(Logn) time. We replace the key to be deleted with minum infinite by calling decreaseKey(). After decreaseKey(), the minus infinite value must reach root, so we call extractMin() to get rid of the key.</li>
+            <p> A Binary Heap could be a Complete Binary Tree. A binary heap is often represented as an array.
+                The root element is going to be at Arr[0].Below table shows indexes of other nodes for the ith node, i.e., Arr[I]:
+                Arr[(i-1)/2], returns the parent node
+                Arr[(2*i)+1], returns the left child node
+                Arr[(2*i)+2], returns the proper child node
+                The traversal method use to realize Array representation is Level Order</p>
+
+            <h3>Applications of Heaps:</h3>
+            
+            <li>Heap Sort: Heap Sort uses Binary Heap to sort an array in O(nLogn) time.</li>
+            <li>Priority Queue: Priority queues will be efficiently implemented using Binary Heap because it supports insert(), delete() and extractmax(), decreaseKey() operations in O(logn) time. Binomoial Heap and Fibonacci Heap are variations of Binary Heap. These variations perform union also efficiently.</li>
+            <li>Graph Algorithms: The priority queues are especially employed in Graph Algorithms like Dijkstra's Shortest Path and Prim's Minimum Spanning Tree.</li>
+            <li>Many problems will be efficiently solved using Heaps. See following for instance.a) K'th Largest Element in an array.b) Sort an almost sorted array/c) Merge K Sorted</li>
+            
+            <h3>Applications of Heaps:</h3>
+
+            <p>Tries, also known as prefix trees, are tree-based data structures primarily used for efficient retrieval of strings. They are especially useful when dealing with dictionary-like applications, where words or keys need to be stored and searched for quickly. In a trie, each node represents a prefix or a complete string, and the edges represent characters. By traversing down the trie, one can search for a specific string or find all strings with a common prefix efficiently. Tries are commonly used in applications like autocomplete, spell-checking, and IP routing.
+
+                In summary, heaps are tree-based data structures used to efficiently implement priority queues, while tries are tree-based data structures used for efficient string retrieval, particularly in applications that involve searching for strings or prefixes.  </p>
+            
+            
+            <h3>Take the quiz and test your knowledge!</h3>
+            <a href="../Excercise/heapex.html">
+                <button class="excercise">Excercise</button>
+            </a>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+              <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                  <li><a href="../About Us/About Us.html">About Us</a></li>
+                  <li><a href="../About Us/About Us.css">Terms and Service</a></li>
+                  <li><a href="../About Us/About Us.html">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Resource</h4>
+                <ul>
+                  <li><a href="../Main Menu/MainMenu.html">Courses</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Exercises</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Videos</a></li>
+                  <li><a href="../Discussion/discussion.html">Discussion</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Subjects</h4>
+                <ul>
+                  <li><a href="../Main Menu/MainMenu.html">Data Structures</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Human Computer Interaction</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Calculus</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Scientific Computing</a></li>
+                </ul>
+              </div>
+                <div class="footer-col">
+                    <h4>Data Structures</h4>
+                    <ul>
+                        <li><a href="../AVL/Main/avl.html">AVL Trees</a></li>
+                        <li><a href="../AVL/Main/avl.html">Heap and Trees</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Human and Computer Interaction</h4>
+                    <ul>
+                        <li><a href="../Figma/Main/figma.html">Figma</a></li>
+                        <li><a href="../Figma/Main/figma.html">JavaScripts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculus</h4>
+                    <ul>
+                        <li><a href="../Integral/Main/integral.html">Integral</a></li>
+                        <li><a href="../Integral/Main/integral.html">Differentiation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Scientific Computing</h4>
+                    <ul>
+                      <li><a href="../Differentiation/Main/differentiation.html">Numerical Differentiation</a></li>
+                      <li><a href="../Differentiation/Main/differentiation.html">Numerical Integration</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </footer>
+
+    <script src="avl.js"></script>
+
+</body>
+</html>

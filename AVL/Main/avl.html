@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVL Tree</title>
+    <link rel="stylesheet" href="./avl.css">
+</head>
+<body>
+    
+    <!-- Navbar HTML -->
+  <header>
+    <nav class="navbar">
+        <a href="../../Homepage/index.html" class="nav-branding">
+            <img src="../Navbar/image/logo-color.png" alt="">
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="../../Main Menu/MainMenu.html" class="nav-link">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="../../About Us/About Us.html" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="../../Discussion/discussion.html" class="nav-link">Discussion</a>
+            </li>
+            <li class="nav-item">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="height: 30px;">
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="height: 30px; background-color: black; color: white;">Search</button>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="avl">
+        <div class="flexcontain">
+            <div class="avl-title flex-box">AVL Tree Insertion</div>
+            <button class="backbut flex-box" onclick="history.back()">Back</button>
+        </div>
+        
+        <div class="avl-video">
+            <iframe src="https://www.youtube.com/embed/CTsz-dZr57E"></iframe>
+        </div>
+
+        <div class="content">
+            <h3>AVL Tree</h3>
+            <p>In this tutorial, you will learn what an avl tree is. Also, you will find working examples of various operations performed on an avl tree in C, C++, Java and Python. AVL tree is a self-balancing binary search tree in which each node maintains extra information called a balance factor whose value is either -1, 0 or +1. AVL tree got its name after its inventor Georgy Adelson-Velsky and Landis.</p>
+
+            <h3>Balance Factor</h3>
+            <p>Balance factor of a node in an AVL tree is the difference between the height of the left subtree and that of the right subtree of that node. Balance Factor = (Height of Left Subtree - Height of Right Subtree) or (Height of Right Subtree - Height of Left Subtree) The self balancing property of an avl tree is maintained by the balance factor. The value of balance factor should always be -1, 0 or +1. An example of a balanced avl tree is:</p>
+
+            <div class="imgcontainer">
+                <img class="img1" src="img1.png" alt="">
+            </div>
+            <h3>Tree Insertion</h3>
+            <p>To make sure that the given tree remains AVL after every insertion, we must augment the standard BST insert operation to perform some re-balancing. Following are two basic operations that can be performed to balance a BST without violating the BST property (keys(left) < key(root) < keys(right)).</p>
+            <li>Right Rotation</li>
+            <li>Left Rotation</li>
+
+            <div class="imgcontainer">
+                <img src="img2.png" alt="">
+            </div>
+
+            <p>Follow the steps mentioned below to implement the idea:
+                Perform the normal BST insertion.</p>
+            <p>The current node must be one of the ancestors of the newly inserted node. Update the height of the current node.
+                Get the balance factor (left subtree height – right subtree height) of the current node.
+                If the balance factor is greater than 1, then the current node is unbalanced and we are either in the Left Left case or left Right case. To check whether it is left left case or not, compare the newly inserted key with the key in the left subtree root.
+                If the balance factor is less than -1, then the current node is unbalanced and we are either in the Right Right case or Right-Left case. To check whether it is the Right Right case or not, compare the newly inserted key with the key in the right subtree root.</p>
+            
+            <h3>Take the quiz and test your knowledge!</h3>
+            <a href="../Excercise/avlex.html">
+                <button class="excercise">Excercise</button>
+            </a>
+            
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+              <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                  <li><a href="../About Us/About Us.html">About Us</a></li>
+                  <li><a href="../About Us/About Us.css">Terms and Service</a></li>
+                  <li><a href="../About Us/About Us.html">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Resource</h4>
+                <ul>
+                  <li><a href="../Main Menu/MainMenu.html">Courses</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Exercises</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Videos</a></li>
+                  <li><a href="../Discussion/discussion.html">Discussion</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Subjects</h4>
+                <ul>
+                  <li><a href="../Main Menu/MainMenu.html">Data Structures</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Human Computer Interaction</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Calculus</a></li>
+                  <li><a href="../Main Menu/MainMenu.html">Scientific Computing</a></li>
+                </ul>
+              </div>
+                <div class="footer-col">
+                    <h4>Data Structures</h4>
+                    <ul>
+                        <li><a href="../AVL/Main/avl.html">AVL Trees</a></li>
+                        <li><a href="../AVL/Main/avl.html">Heap and Trees</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Human and Computer Interaction</h4>
+                    <ul>
+                        <li><a href="../Figma/Main/figma.html">Figma</a></li>
+                        <li><a href="../Figma/Main/figma.html">JavaScripts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculus</h4>
+                    <ul>
+                        <li><a href="../Integral/Main/integral.html">Integral</a></li>
+                        <li><a href="../Integral/Main/integral.html">Differentiation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Scientific Computing</h4>
+                    <ul>
+                      <li><a href="../Differentiation/Main/differentiation.html">Numerical Differentiation</a></li>
+                      <li><a href="../Differentiation/Main/differentiation.html">Numerical Integration</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </footer>
+
+    <script src="avl.js"></script>
+
+</body>
+</html>

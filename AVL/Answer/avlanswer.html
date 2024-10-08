@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVL Tree</title>
+    <link rel="stylesheet" href="./avlanswer.css">
+</head>
+<body>
+    
+    <!-- Navbar HTML -->
+  <header>
+    <nav class="navbar">
+        <a href="../../Homepage/index.html" class="nav-branding">
+            <img src="../Navbar/image/logo-color.png" alt="">
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="../../Main Menu/MainMenu.html" class="nav-link">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="../../About Us/About Us.html" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="../../Discussion/discussion.html" class="nav-link">Discussion</a>
+            </li>
+            <li class="nav-item">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="height: 30px;">
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="height: 30px; background-color: black; color: white;">Search</button>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="avl">
+        <div class="flexcontain">
+            <div class="avl-title flex-box">AVL Tree Insertion</div>
+    
+            <button class="backbut flex-box" onclick="history.back()">Back</button>
+
+        </div>
+
+        <div class="content">
+            <div class="contentcontainer">
+                <pre>
+                    // AVL tree implementation in C
+
+                    #include&lt;stdio.h&gt;
+                    #include&lt;stdlib.h&gt;
+
+                    // Create Node
+                    struct Node {
+                    int key;
+                    struct Node *left;
+                    struct Node *right;
+                    int height;
+                    };
+
+                    int max(int a, int b);
+
+                    // Calculate height
+                    int height(struct Node *N) {
+                    if (N == NULL)
+                        return 0;
+                    return N->height;
+                    }
+
+                    int max(int a, int b) {
+                    return (a > b) ? a : b;
+                    }
+
+                    // Create a node
+                    struct Node *newNode(int key) {
+                    struct Node *node = (struct Node *)
+                        malloc(sizeof(struct Node));
+                    node->key = key;
+                    node->left = NULL;
+                    node->right = NULL;
+                    node->height = 1;
+                    return (node);
+                    }
+
+                    // Right rotate
+                    struct Node *rightRotate(struct Node *y) {
+                    struct Node *x = y->left;
+                    struct Node *T2 = x->right;
+
+                    x->right = y;
+                    y->left = T2;
+
+                    y->height = max(height(y->left), height(y->right)) + 1;
+                    x->height = max(height(x->left), height(x->right)) + 1;
+
+                    return x;
+                    }
+
+                    // Left rotate
+                    struct Node *leftRotate(struct Node *x) {
+                    struct Node *y = x->right;
+                    struct Node *T2 = y->left;
+
+                    y->left = x;
+                    x->right = T2;
+
+                    x->height = max(height(x->left), height(x->right)) + 1;
+                    y->height = max(height(y->left), height(y->right)) + 1;
+
+                    return y;
+                    }
+
+                    // Get the balance factor
+                    int getBalance(struct Node *N) {
+                    if (N == NULL)
+                        return 0;
+                    return height(N->left) - height(N->right);
+                    }
+
+                    // Insert node
+                    struct Node *insertNode(struct Node *node, int key) {
+                    // Find the correct position to insertNode the node and insertNode it
+                    if (node == NULL)
+                        return (newNode(key));
+
+                    if (key < node->key)
+                        node->left = insertNode(node->left, key);
+                    else if (key > node->key)
+                        node->right = insertNode(node->right, key);
+                    else
+                        return node;
+
+                    // Update the balance factor of each node and
+                    // Balance the tree
+                    node->height = 1 + max(height(node->left),
+                                height(node->right));
+
+                    int balance = getBalance(node);
+                    if (balance > 1 && key < node->left->key)
+                        return rightRotate(node);
+
+                    if (balance < -1 && key > node->right->key)
+                        return leftRotate(node);
+
+                    if (balance > 1 && key > node->left->key) {
+                        node->left = leftRotate(node->left);
+                        return rightRotate(node);
+                    }
+
+                    if (balance < -1 && key < node->right->key) {
+                        node->right = rightRotate(node->right);
+                        return leftRotate(node);
+                    }
+
+                    return node;
+                    }
+
+                    struct Node *minValueNode(struct Node *node) {
+                    struct Node *current = node;
+
+                    while (current->left != NULL)
+                        current = current->left;
+
+                    return current;
+                    }
+
+                    // Delete a nodes
+                    struct Node *deleteNode(struct Node *root, int key) {
+                    // Find the node and delete it
+                    if (root == NULL)
+                        return root;
+
+                    if (key < root->key)
+                        root->left = deleteNode(root->left, key);
+
+                    else if (key > root->key)
+                        root->right = deleteNode(root->right, key);
+
+                    else {
+                        if ((root->left == NULL) || (root->right == NULL)) {
+                        struct Node *temp = root->left ? root->left : root->right;
+
+                        if (temp == NULL) {
+                            temp = root;
+                            root = NULL;
+                        } else
+                            *root = *temp;
+                        free(temp);
+                        } else {
+                        struct Node *temp = minValueNode(root->right);
+
+                        root->key = temp->key;
+
+                        root->right = deleteNode(root->right, temp->key);
+                        }
+                    }
+
+                    if (root == NULL)
+                        return root;
+
+                    // Update the balance factor of each node and
+                    // balance the tree
+                    root->height = 1 + max(height(root->left),
+                                height(root->right));
+
+                    int balance = getBalance(root);
+                    if (balance > 1 && getBalance(root->left) >= 0)
+                        return rightRotate(root);
+
+                    if (balance > 1 && getBalance(root->left) < 0) {
+                        root->left = leftRotate(root->left);
+                        return rightRotate(root);
+                    }
+
+                    if (balance < -1 && getBalance(root->right) <= 0)
+                        return leftRotate(root);
+
+                    if (balance < -1 && getBalance(root->right) > 0) {
+                        root->right = rightRotate(root->right);
+                        return leftRotate(root);
+                    }
+
+                    return root;
+                    }
+
+                    // Print the tree
+                    void printPreOrder(struct Node *root) {
+                    if (root != NULL) {
+                        printf("%d ", root->key);
+                        printPreOrder(root->left);
+                        printPreOrder(root->right);
+                    }
+                    }
+
+                    int main() {
+                    struct Node *root = NULL;
+
+                    root = insertNode(root, 2);
+                    root = insertNode(root, 1);
+                    root = insertNode(root, 7);
+                    root = insertNode(root, 4);
+                    root = insertNode(root, 5);
+                    root = insertNode(root, 3);
+                    root = insertNode(root, 8);
+
+                    printPreOrder(root);
+
+                    root = deleteNode(root, 3);
+
+                    printf("\nAfter deletion: ");
+                    printPreOrder(root);
+
+                    return 0;
+                    }
+
+                </pre>
+        </pre></div>
+        
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+              <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                  <li><a href="../products/products.html">About Us</a></li>
+                  <li><a href="../products/products.html">Terms and Service</a></li>
+                  <li><a href="../products/products.html">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Resource</h4>
+                <ul>
+                  <li><a href="../products/products.html">Courses</a></li>
+                  <li><a href="../products/products.html">Exercises</a></li>
+                  <li><a href="../products/products.html">Videos</a></li>
+                  <li><a href="../products/products.html">Discussion</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Subjects</h4>
+                <ul>
+                  <li><a href="../products/products.html">Data Structures</a></li>
+                  <li><a href="../products/products.html">Human Computer Interaction</a></li>
+                  <li><a href="../products/products.html">Calculus</a></li>
+                  <li><a href="../products/products.html">Scientific Computing</a></li>
+                </ul>
+              </div>
+                <div class="footer-col">
+                    <h4>Data Structures</h4>
+                    <ul>
+                        <li><a href="../products/products.html">AVL Trees</a></li>
+                        <li><a href="../products/products.html">Heap and Trees</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Human and Computer Interaction</h4>
+                    <ul>
+                        <li><a href="../AboutUs/aboutUs.html">Figma</a></li>
+                        <li><a href="../AboutUs/aboutUs.html">JavaScripts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculus</h4>
+                    <ul>
+                        <li><a href="../ContactUs/contactUs.html">Integeral</a></li>
+                        <li><a href="../ContactUs/contactUs.html">Differentiation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Scientific Computing</h4>
+                    <ul>
+                      <li><a href="../ContactUs/contactUs.html">Numerical Differentiation</a></li>
+                      <li><a href="../ContactUs/contactUs.html">Numerical Integration</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </footer>
+
+    <script src="avl.js"></script>
+
+</body>
+</html>

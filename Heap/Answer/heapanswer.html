@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heap Tree</title>
+    <link rel="stylesheet" href="./heapanswer.css">
+</head>
+<body>
+    
+    <!-- Navbar HTML -->
+  <header>
+    <nav class="navbar">
+        <a href="#" class="nav-branding">
+            <img src="logo-black.png" alt="">
+        </a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Discussion</a>
+            </li>
+            <li class="nav-item">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="height: 30px;">
+            </li>
+            <li>
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="height: 30px; background-color: black; color: white;">Search</button>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+     </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="avl">
+        <div class="flexcontain">
+            <div class="avl-title flex-box">Heap Tree</div>
+    
+            <button class="backbut flex-box" onclick="history.back()">Back</button>
+
+        </div>
+
+        <div class="content">
+            <div class="contentcontainer">
+                <pre>
+                    #include <stdio.h>
+                        #include <stdlib.h>
+                        
+                        // Structure for Heap Tree
+                        struct Heap {
+                            int* array;
+                            int capacity;
+                            int size;
+                        };
+                        
+                        // Function to create a new heap tree
+                        struct Heap* createHeap(int capacity) {
+                            struct Heap* heap = (struct Heap*)malloc(sizeof(struct Heap));
+                            heap->array = (int*)malloc(capacity * sizeof(int));
+                            heap->capacity = capacity;
+                            heap->size = 0;
+                            return heap;
+                        }
+                        
+                        // Function to swap two elements in an array
+                        void swap(int* a, int* b) {
+                            int temp = *a;
+                            *a = *b;
+                            *b = temp;
+                        }
+                        
+                        // Function to maintain the heap property (upward)
+                        void heapifyUp(struct Heap* heap, int index) {
+                            int parent = (index - 1) / 2;
+                        
+                            if (parent >= 0 && heap->array[parent] > heap->array[index]) {
+                                swap(&heap->array[parent], &heap->array[index]);
+                                heapifyUp(heap, parent);
+                            }
+                        }
+                        
+                        // Function to maintain the heap property (downward)
+                        void heapifyDown(struct Heap* heap, int index) {
+                            int smallest = index;
+                            int left = 2 * index + 1;
+                            int right = 2 * index + 2;
+                        
+                            if (left < heap->size && heap->array[left] < heap->array[smallest])
+                                smallest = left;
+                        
+                            if (right < heap->size && heap->array[right] < heap->array[smallest])
+                                smallest = right;
+                        
+                            if (smallest != index) {
+                                swap(&heap->array[index], &heap->array[smallest]);
+                                heapifyDown(heap, smallest);
+                            }
+                        }
+                        
+                        // Function to insert an element into the heap tree
+                        void insert(struct Heap* heap, int value) {
+                            if (heap->size == heap->capacity) {
+                                printf("Heap Overflow\n");
+                                return;
+                            }
+                        
+                            heap->array[heap->size] = value;
+                            heapifyUp(heap, heap->size);
+                            heap->size++;
+                        }
+                        
+                        // Function to extract the minimum value from the heap tree
+                        int extractMin(struct Heap* heap) {
+                            if (heap->size == 0) {
+                                printf("Heap Underflow\n");
+                                return -1;
+                            }
+                        
+                            int min = heap->array[0];
+                            heap->array[0] = heap->array[heap->size - 1];
+                            heap->size--;
+                            heapifyDown(heap, 0);
+                            return min;
+                        }
+                        
+                        // Function to test the heap tree functionality
+                        void testHeapTree() {
+                            struct Heap* heap = createHeap(10);
+                        
+                            // Insertion test
+                            insert(heap, 10);
+                            insert(heap, 20);
+                            insert(heap, 30);
+                            insert(heap, 40);
+                            insert(heap, 50);
+                        
+                            printf("Heap after insertion: ");
+                            for (int i = 0; i < heap->size; i++) {
+                                printf("%d ", heap->array[i]);
+                            }
+                            printf("\n");
+                        
+                            // Extraction test
+                            int extractedMin = extractMin(heap);
+                            printf("Extracted Minimum Value: %d\n", extractedMin);
+                        
+                            printf("Heap after extraction: ");
+                            for (int i = 0; i < heap->size; i++) {
+                                printf("%d ", heap->array[i]);
+                            }
+                            printf("\n");
+                        
+                            free(heap->array);
+                            free(heap);
+                        }
+                        
+                        int main() {
+                            testHeapTree
+                        
+
+                </pre>
+        </pre>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-row">
+              <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                  <li><a href="../products/products.html">About Us</a></li>
+                  <li><a href="../products/products.html">Terms and Service</a></li>
+                  <li><a href="../products/products.html">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Resource</h4>
+                <ul>
+                  <li><a href="../products/products.html">Courses</a></li>
+                  <li><a href="../products/products.html">Exercises</a></li>
+                  <li><a href="../products/products.html">Videos</a></li>
+                  <li><a href="../products/products.html">Discussion</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Subjects</h4>
+                <ul>
+                  <li><a href="../products/products.html">Data Structures</a></li>
+                  <li><a href="../products/products.html">Human Computer Interaction</a></li>
+                  <li><a href="../products/products.html">Calculus</a></li>
+                  <li><a href="../products/products.html">Scientific Computing</a></li>
+                </ul>
+              </div>
+                <div class="footer-col">
+                    <h4>Data Structures</h4>
+                    <ul>
+                        <li><a href="../products/products.html">AVL Trees</a></li>
+                        <li><a href="../products/products.html">Heap and Trees</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Human and Computer Interaction</h4>
+                    <ul>
+                        <li><a href="../AboutUs/aboutUs.html">Figma</a></li>
+                        <li><a href="../AboutUs/aboutUs.html">JavaScripts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Calculus</h4>
+                    <ul>
+                        <li><a href="../ContactUs/contactUs.html">Integeral</a></li>
+                        <li><a href="../ContactUs/contactUs.html">Differentiation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Scientific Computing</h4>
+                    <ul>
+                      <li><a href="../ContactUs/contactUs.html">Numerical Differentiation</a></li>
+                      <li><a href="../ContactUs/contactUs.html">Numerical Integration</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      </footer>
+
+    <script src="avl.js"></script>
+
+</body>
+</html>
